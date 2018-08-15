@@ -16,6 +16,59 @@ const User = require("../../models/User");
 // @access  public
 router.get("/test", (req, res) => res.json({ msg: "Profile works" }));
 
+// @routes  GET api/profile/all
+// @desc    Get current user profile
+// @access  public
+router.get("/all", (req, res) => {
+  Profile.find()
+    .populate("user", ["name", "avatar"])
+    .then(profiles => {
+      if (!profiles) {
+        errors.noprofiles = "There is no profiles ";
+        return res.status(404).json(noprofiles);
+      }
+      res.json(profiles);
+    })
+    .catch(err => {
+      res.status(404).json({ profiles: "There is no profiles" });
+    });
+});
+// @routes  GET api/profile/handle/:handle
+// @desc    Get current user profile
+// @access  public
+router.get("/handle/:handle", (req, res) => {
+  const errors = {};
+  Profile.findOne({ handle: req.params.handle })
+    .populate("user", ["name", "avatar"])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = "There is no profile for this user";
+        res.status(404).json(errors);
+      }
+      res.json(profile);
+    })
+    .catch(err => res.status(404).json(err));
+});
+
+// @routes  GET api/profile/user/:user_id
+// @desc    Get profile by user id
+// @access  public
+router.get("/user/:user_id", (req, res) => {
+  const errors = {};
+  Profile.findOne({ user: req.params.user_id })
+    .populate("user", ["name", "avatar"])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = "There is no profile for this user";
+        res.status(404).json(errors);
+      }
+      res.json(profile);
+    })
+    .catch(err =>
+      res.status(404).json({ profile: "There is no profile for this user" })
+    );
+});
+
 // @routes  GET api/profile
 // @desc    Get current user profile
 // @access  private
