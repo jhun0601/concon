@@ -8,8 +8,8 @@ img {
   background-size: cover;
   background-position: center;
   height: 100vh;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: -24px;
+  margin-bottom: -50px;
 }
 
 .landing-inner {
@@ -38,37 +38,19 @@ img {
   color: #bbb !important;
 }
 
-/*change in css*/
-html {
-  height: 100%;
-}
-html body {
-  height: 100%;
-  overflow: hidden;
-}
-html body .container-fluid.body-content {
-  position: absolute;
-  top: 50px;
-  bottom: 30px;
-  right: 0;
-  left: 0;
-  overflow-y: auto;
+/*additional css*/
+
+.lm {
+  margin-bottom: 230px;
+  /* margin for login */
 }
 
-header {
-  position: absolute;
+.fp {
+  position: fixed;
   left: 0;
-  right: 0;
-  top: 0;
-  background-color: #4c4;
-  height: 50px;
-}
-
-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
   bottom: 0;
-  background-color: #4c4;
-  height: 30px;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
