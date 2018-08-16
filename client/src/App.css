@@ -1,32 +1,15 @@
 img {
-  /* width: 100%; */
-  min-height: 100%;
-  min-width: 1024px;
   width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-@media screen and (max-width: 1024px) {
-  /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px; /* 50% */
-  }
 }
 
 .landing {
   position: relative;
-  background: url("./img/showcase.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url("./img/showcase.jpg") no-repeat;
   background-size: cover;
-  height: 90vh;
-  margin-top: -24px;
-  margin-bottom: -50px;
+  background-position: center;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .landing-inner {
@@ -40,7 +23,6 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .card-form {
@@ -56,10 +38,37 @@ img {
   color: #bbb !important;
 }
 
-#header {
+/*change in css*/
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  overflow: hidden;
+}
+html body .container-fluid.body-content {
   position: absolute;
-  top: 0;
+  top: 50px;
+  bottom: 30px;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+header {
+  position: absolute;
   left: 0;
   right: 0;
-  overflow: hidden;
+  top: 0;
+  background-color: #4c4;
+  height: 50px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4c4;
+  height: 30px;
 }

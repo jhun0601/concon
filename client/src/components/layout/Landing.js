@@ -5,10 +5,10 @@ class Landing extends Component {
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">
-          <div className="container">
+          <div className="container-fluid body-content">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Deve Connector</h1>
+                <h1 className="display-3 mb-4">ConCon</h1>
                 <p className="lead">
                   {" "}
                   Create a developer profile/portfolio, share posts and get help
