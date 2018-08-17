@@ -5,7 +5,7 @@ export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
     .then(res => {
-      history.push("/login");
+      console.log();
     })
     .catch(err =>
       dispatch({

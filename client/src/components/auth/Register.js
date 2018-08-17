@@ -42,15 +42,13 @@ class Register extends Component {
       password2: this.state.password2
     };
     //redirect from registerUser
-    this.props.registerUser(newUser, this.props.history);
+    this.props.registerUser(newUser, this.props.history.push("/login"));
   }
   render() {
     const { errors } = this.state;
 
-    // const { user } = this.props.auth;
     return (
       <div className="register">
-        {/* {user ? user.name : null} */}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
