@@ -42,7 +42,7 @@ class Register extends Component {
       password2: this.state.password2
     };
     //redirect from registerUser
-    this.props.registerUser(newUser, this.props.history.push("/login"));
+    this.props.registerUser(newUser, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -51,7 +51,7 @@ class Register extends Component {
       <div className="register">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-5 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your ConCon account</p>
               <form onSubmit={this.onSubmit}>
