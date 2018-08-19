@@ -26,6 +26,13 @@ export const registerUser = (userData, history) => dispatch => {
 
 //login -get user token
 export const loginUser = userData => dispatch => {
+  const toast = swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000
+  });
+
   axios
     .post("/api/users/login", userData)
     .then(res => {
@@ -40,6 +47,12 @@ export const loginUser = userData => dispatch => {
       //set current user
       dispatch(setCurrentUser(decoded));
     })
+    .then(res =>
+      toast({
+        type: "success",
+        title: "Signed in successfully"
+      })
+    )
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
