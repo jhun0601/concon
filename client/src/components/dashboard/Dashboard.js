@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
+import { loginUser } from "../../actions/authActions";
+import Link from "react-router-dom/Link";
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
@@ -21,11 +22,10 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = <h2>DISPLAY PROFILE</h2>;
       } else {
-        //user logged in but no profile
         dashboardContent = (
           <div>
-            <p className="lead tex-muted">Welcome {user.name}</p>
-            <p>You have not yet set your profile,please add some info</p>
+            <p className="lead text-muted">Welcome {user.name}</p>
+            <p>You have not yet setup a profile, please add some info.</p>
             <Link to="/create-profile" className="btn btn-lg btn-info">
               Create Profile
             </Link>
@@ -58,5 +58,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, loginUser }
 )(Dashboard);
