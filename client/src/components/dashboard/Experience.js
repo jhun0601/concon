@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 import Moment from "react-moment";
+import { deleteExperience } from "../../actions/profileActions";
 class Experience extends Component {
+  onDeleteClick(id) {
+    this.props.deleteExperience(id);
+  }
+
   render() {
     const experience = this.props.experience.map(exp => (
       <tr key={exp._id}>
@@ -18,31 +22,41 @@ class Experience extends Component {
           )}
         </td>
         <td>
-          <button className="btn btn-danger">Delete</button>
+          <button
+            onClick={this.onDeleteClick.bind(this, exp._id)}
+            className="btn btn-danger"
+          >
+            <i className="fa fa-trash" />
+          </button>
         </td>
       </tr>
     ));
     return (
       <div>
         <h4 className="mb-4">Experience Credentials</h4>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Job Title</th>
-              <th>Years</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>{experience}</tbody>
-        </table>
+        <div className="table-responsive-sm">
+          <table className="table table-hover table-bordered">
+            <thead>
+              <tr className="thead-dark">
+                <th>Company</th>
+                <th>Job Title</th>
+                {/* <th>Field of Study</th> */}
+                <th>Years</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>{experience}</tbody>
+          </table>
+        </div>
       </div>
     );
   }
 }
+Experience.propTypes = {
+  deleteExperience: PropTypes.func.isRequired
+};
 
-// const mapStateToProps = state => ({
-
-// })
-
-export default connect(null)(withRouter(Experience));
+export default connect(
+  null,
+  { deleteExperience }
+)(Experience);
