@@ -88,6 +88,69 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
+//delete experience
+export const deleteExperience = id => dispatch => {
+  swal({
+    title: "<strong>Are you sure you want to delete your experience</strong>",
+    type: "warning",
+    html: "This cannot be undone",
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: '<i class="fa fa-trash"></i> Delete',
+    cancelButtonText: '<i class="fa fa-times-circle"></i> Cancel'
+  }).then(res => {
+    if (res.value) {
+      axios
+        .delete(`/api/profile/experience/${id}`)
+        .then(res =>
+          dispatch({
+            type: GET_PROFILE,
+            payload: res.data
+          })
+        )
+        .then(res => swal("Deleted!", "Your data has been deleted.", "success"))
+        .catch(err =>
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        );
+    }
+  });
+};
+
+//delete education
+export const deleteEducation = id => dispatch => {
+  swal({
+    title:
+      "<strong>Are you sure you want to delete your education record</strong>",
+    type: "warning",
+    html: "This cannot be undone",
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: '<i class="fa fa-trash"></i> Delete',
+    cancelButtonText: '<i class="fa fa-times-circle"></i> Cancel'
+  }).then(res => {
+    if (res.value) {
+      axios
+        .delete(`/api/profile/education/${id}`)
+        .then(res =>
+          dispatch({
+            type: GET_PROFILE,
+            payload: res.data
+          })
+        )
+        .then(res => swal("Deleted!", "Your data has been deleted.", "success"))
+        .catch(err =>
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        );
+    }
+  });
+};
+
 //delete account and profile
 export const deleteAccount = () => dispatch => {
   swal({
