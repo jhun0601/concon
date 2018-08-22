@@ -36,7 +36,7 @@ class PostForm extends Component {
       avatar: user.avatar
     };
     this.props.addPost(newPost);
-    // this.setState({ text: "" });
+    this.setState({ text: "" });
   }
 
   render() {
@@ -69,7 +69,7 @@ class PostForm extends Component {
   }
 }
 
-PostForm.proptypes = {
+PostForm.propTypes = {
   addPost: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
