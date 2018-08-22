@@ -1,4 +1,4 @@
-import { GET_ERRORS } from "../actions/types";
+import { GET_ERRORS, CLEAR_ERRORS } from "../actions/types";
 
 const initialState = {};
 //dispatch actions to this reducer
@@ -9,6 +9,8 @@ export default function(state = initialState, action) {
     // return
     case GET_ERRORS:
       return action.payload;
+    case CLEAR_ERRORS:
+      return {};
     default:
       return state;
   }
