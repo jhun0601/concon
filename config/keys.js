@@ -1,6 +1,5 @@
-module.exports = {
-  mongoURI: "mongodb://jhun:password1@ds121332.mlab.com:21332/conconnector",
-  secretOrKey: "secret101",
-  githubClientId: "",
-  githubCLientSecret: ""
-};
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys_prod");
+} else {
+  module.exports = require("./keys_dev");
+}
