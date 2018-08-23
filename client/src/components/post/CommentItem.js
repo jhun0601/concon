@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Moment from "react-moment";
 import PropTypes from "prop-types";
 import { deleteComment } from "../../actions/postActions";
 
@@ -43,6 +44,11 @@ class CommentItem extends Component {
                 <i className="fas fa-times" />
               </button>
             ) : null}
+            <div className="float-right">
+              <Moment format="LLLL" className="small-1">
+                {comment.date}
+              </Moment>
+            </div>
           </div>
         </div>
       </div>
