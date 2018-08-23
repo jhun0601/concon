@@ -19,10 +19,12 @@ class Posts extends Component {
       postContent = <PostFeed posts={posts} />;
     }
     return (
-      <div className="feed">
+      <div className="feed" style={{ marginBottom: "100px" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+              <h1 className="display-4 text-center">Post Feed</h1>
+              <p className="lead text-center">Connect to Developers</p>
               <PostForm />
               {postContent}
             </div>
