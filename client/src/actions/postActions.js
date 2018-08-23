@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import swal from "sweetalert2";
 import {
   ADD_POST,
   GET_ERRORS,
@@ -69,20 +69,33 @@ export const getPost = id => dispatch => {
 
 // delete post
 export const deletePost = id => dispatch => {
-  axios
-    .delete(`/api/posts/${id}`)
-    .then(res =>
-      dispatch({
-        type: DELETE_POST,
-        payload: id
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+  swal({
+    title: "<strong>Are you sure?</strong>",
+    text: "You won't be able to revert this!",
+    type: "warning",
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: '<i class="fa fa-trash"></i> Delete',
+    cancelButtonText: '<i class="fa fa-times-circle"></i> Cancel'
+  }).then(res => {
+    axios
+      .delete(`/api/posts/${id}`)
+      .then(res =>
+        dispatch({
+          type: DELETE_POST,
+          payload: id
+        })
+      )
+      .then(res => swal("Deleted!", "Your post has been deleted.", "success"))
+      .catch(err =>
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      );
+  });
 };
 
 //add like
@@ -132,20 +145,37 @@ export const addComment = (postId, commentData) => dispatch => {
 
 // delete comment
 export const deleteComment = (postId, commentId) => dispatch => {
-  axios
-    .delete(`/api/posts/comment/${postId}/${commentId}`)
-    .then(res =>
-      dispatch({
-        type: GET_POST,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+  swal({
+    title: "<strong>Are you sure?</strong>",
+    text: "You won't be able to revert this!",
+    type: "warning",
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: '<i class="fa fa-trash"></i> Delete',
+    cancelButtonText: '<i class="fa fa-times-circle"></i> Cancel'
+  }).then(res => {
+    if (res.value) {
+      axios
+        .delete(`/api/posts/comment/${postId}/${commentId}`)
+        .then(res =>
+          dispatch({
+            type: GET_POST,
+            payload: res.data
+          })
+        )
+        .then(res =>
+          swal("Deleted!", "Your comment has been deleted.", "success")
+        )
+        .catch(err =>
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        );
+    }
+  });
 };
 
 //set loading state
