@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Moment from "react-moment";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, removeLike } from "../../actions/postActions";
@@ -41,11 +42,10 @@ class PostItem extends Component {
           </div>
           <div className="col-md-10">
             <p className="lead">{post.text}</p>
-
             {showActions ? (
               <span>
                 <button
-                  className="btn btn-light mr-1"
+                  className="btn btn-light mr-1 btn-sm"
                   type="button"
                   onClick={this.onLikeClick.bind(this, post._id)}
                 >
@@ -58,26 +58,34 @@ class PostItem extends Component {
                 </button>
 
                 <button
-                  className="btn btn-light mr-1"
+                  className="btn btn-light mr-1 btn-sm"
                   type="button"
                   onClick={this.onDislikeClick.bind(this, post._id)}
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                <Link
+                  to={`/post/${post._id}`}
+                  className="btn btn-info mr-1 btn-sm"
+                >
                   Comments
                 </Link>
                 {post.user === auth.user.id ? (
                   <button
                     type="button"
                     onClick={this.onDeleteClick.bind(this, post._id)}
-                    className="btn btn-danger mr-1"
+                    className="btn btn-danger mr-1 btn-sm"
                   >
                     <i className="fas fa-times" />
                   </button>
                 ) : null}
               </span>
             ) : null}
+            <div className="float-right">
+              <Moment format="LLLL" className="small-1">
+                {post.date}
+              </Moment>
+            </div>
           </div>
         </div>
       </div>
