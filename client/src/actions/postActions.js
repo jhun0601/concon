@@ -80,21 +80,23 @@ export const deletePost = id => dispatch => {
     confirmButtonText: '<i class="fa fa-trash"></i> Delete',
     cancelButtonText: '<i class="fa fa-times-circle"></i> Cancel'
   }).then(res => {
-    axios
-      .delete(`/api/posts/${id}`)
-      .then(res =>
-        dispatch({
-          type: DELETE_POST,
-          payload: id
-        })
-      )
-      .then(res => swal("Deleted!", "Your post has been deleted.", "success"))
-      .catch(err =>
-        dispatch({
-          type: GET_ERRORS,
-          payload: err.response.data
-        })
-      );
+    if (res.value) {
+      axios
+        .delete(`/api/posts/${id}`)
+        .then(res =>
+          dispatch({
+            type: DELETE_POST,
+            payload: id
+          })
+        )
+        .then(res => swal("Deleted!", "Your post has been deleted.", "success"))
+        .catch(err =>
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        );
+    }
   });
 };
 
