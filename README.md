@@ -9,7 +9,10 @@ mlab - free 16mb storage
 bootstrap
 sweetalert2
 
-# heroku
+# youtube channel
+https://www.youtube.com/user/ngjhunnen/videos/concon
+
+# heroku not deploy live
 https://infinite-castle-27528.herokuapp.com/
 
 # on going
