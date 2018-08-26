@@ -82,37 +82,50 @@ class AddEducation extends Component {
                   onChange={this.onChange}
                   error={errors.school}
                 />
-                <TextFieldGroup
-                  placeholder="* Degree or Certification"
-                  name="degree"
-                  value={this.state.degree}
-                  onChange={this.onChange}
-                  error={errors.degree}
-                />
-                <TextFieldGroup
-                  placeholder="* Field of Study"
-                  name="fieldofstudy"
-                  value={this.state.fieldofstudy}
-                  onChange={this.onChange}
-                  error={errors.fieldofstudy}
-                />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
+                <div className="row">
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="* Degree or Certification"
+                      name="degree"
+                      value={this.state.degree}
+                      onChange={this.onChange}
+                      error={errors.degree}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="* Field of Study"
+                      name="fieldofstudy"
+                      value={this.state.fieldofstudy}
+                      onChange={this.onChange}
+                      error={errors.fieldofstudy}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <h6>From Date</h6>
+                    <TextFieldGroup
+                      name="from"
+                      type="date"
+                      value={this.state.from}
+                      onChange={this.onChange}
+                      error={errors.from}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <h6>To Date</h6>
+                    <TextFieldGroup
+                      name="to"
+                      type="date"
+                      value={this.state.to}
+                      onChange={this.onChange}
+                      error={errors.to}
+                      disabled={this.state.disabled ? "disabled" : ""}
+                    />
+                  </div>
+                </div>
+
                 <div className="form-check mb-4">
                   <input
                     type="checkbox"

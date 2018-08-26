@@ -28,7 +28,7 @@ class Dashboard extends Component {
       //check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
-          <div>
+          <div className="c-mb">
             <p className="lead text-muted">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>

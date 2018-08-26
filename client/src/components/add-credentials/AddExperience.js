@@ -83,37 +83,49 @@ class AddExperience extends Component {
                   onChange={this.onChange}
                   error={errors.company}
                 />
-                <TextFieldGroup
-                  placeholder="* Job Title"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  error={errors.title}
-                />
-                <TextFieldGroup
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
-                  onChange={this.onChange}
-                  error={errors.location}
-                />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
+                <div className="row">
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="* Job Title"
+                      name="title"
+                      value={this.state.title}
+                      onChange={this.onChange}
+                      error={errors.title}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="Location"
+                      name="location"
+                      value={this.state.location}
+                      onChange={this.onChange}
+                      error={errors.location}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <h6>From Date</h6>
+                    <TextFieldGroup
+                      name="from"
+                      type="date"
+                      value={this.state.from}
+                      onChange={this.onChange}
+                      error={errors.from}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <h6>To Date</h6>
+                    <TextFieldGroup
+                      name="to"
+                      type="date"
+                      value={this.state.to}
+                      onChange={this.onChange}
+                      error={errors.to}
+                      disabled={this.state.disabled ? "disabled" : ""}
+                    />
+                  </div>
+                </div>
                 <div className="form-check mb-4">
                   <input
                     type="checkbox"
