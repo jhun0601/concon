@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import googleImage from "../../img/google_white_bg.png";
 // import classnames from "classnames";
 import TextFieldGroup from "../common/TextFieldGroup";
 
@@ -70,6 +71,11 @@ class Login extends Component {
                   error={errors.password}
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
+                <hr />
+                <div className="btn btn-block btn-google">
+                  <img src={googleImage} alt="" className="btn-google-icon" />
+                  <span className="btn-google-text">Sign in with Google</span>
+                </div>
               </form>
             </div>
           </div>
