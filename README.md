@@ -10,7 +10,7 @@ bootstrap
 sweetalert2
 
 # youtube channel
-https://www.youtube.com/user/ngjhunnen/videos/concon
+https://www.youtube.com/watch?v=uHt2CmD6Ndo&t=8s
 
 # heroku not deploy live
 https://infinite-castle-27528.herokuapp.com/
