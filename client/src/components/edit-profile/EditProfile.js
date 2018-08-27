@@ -272,7 +272,7 @@ class CreateProfile extends Component {
                 <div className="mb-3">
                   <button
                     type="button"
-                    className="btn btn-light"
+                    className="btn btn-info"
                     onClick={() => {
                       this.setState(prevState => ({
                         displaySocialInputs: !prevState.displaySocialInputs
@@ -281,7 +281,7 @@ class CreateProfile extends Component {
                   >
                     Add Social Network Links
                   </button>
-                  <span className="text-muted">Optional</span>
+                  <span className="text-muted"> Optional</span>
                 </div>
                 {socialInputs}
                 <input
