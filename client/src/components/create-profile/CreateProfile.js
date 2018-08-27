@@ -134,64 +134,84 @@ class CreateProfile extends Component {
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="*Profile Handle"
-                  name="handle"
-                  value={this.state.handle}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname, etc."
-                />
-                <SelectListGroup
-                  placeholder="Status"
-                  name="status"
-                  value={this.state.status}
-                  onChange={this.onChange}
-                  options={options}
-                  error={errors.status}
-                  info="Give us an idea where you are in your career"
-                />
-                <TextFieldGroup
-                  placeholder="Company"
-                  name="company"
-                  value={this.state.company}
-                  onChange={this.onChange}
-                  error={errors.company}
-                  info="Could be your own company or one you work for"
-                />
-                <TextFieldGroup
-                  placeholder="Website"
-                  name="website"
-                  value={this.state.website}
-                  onChange={this.onChange}
-                  error={errors.website}
-                  info="Could be your own website or a company one"
-                />
-                <TextFieldGroup
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
-                  onChange={this.onChange}
-                  error={errors.location}
-                  info="City or city & state suggested(eg.Manila, Quezon City)"
-                />
-                <TextFieldGroup
-                  placeholder="*Skills"
-                  name="skills"
-                  value={this.state.skills}
-                  onChange={this.onChange}
-                  error={errors.skills}
-                  info="Please use comma separate values (eg. HTML, CSS, PHP, Javascript)"
-                />
+                <div className="row">
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="*Profile Username"
+                      name="handle"
+                      value={this.state.handle}
+                      onChange={this.onChange}
+                      error={errors.handle}
+                      info="A unique username for your profile URL. Your full name, company name, nickname, etc."
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <SelectListGroup
+                      placeholder="Status"
+                      name="status"
+                      value={this.state.status}
+                      onChange={this.onChange}
+                      options={options}
+                      error={errors.status}
+                      info="Give us an idea where you are in your career"
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-4">
+                    <TextFieldGroup
+                      placeholder="Company"
+                      name="company"
+                      value={this.state.company}
+                      onChange={this.onChange}
+                      error={errors.company}
+                      info="Could be your own company or one you work for"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <TextFieldGroup
+                      placeholder="Website"
+                      name="website"
+                      value={this.state.website}
+                      onChange={this.onChange}
+                      error={errors.website}
+                      info="Could be your own website or a company one"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <TextFieldGroup
+                      placeholder="Location"
+                      name="location"
+                      value={this.state.location}
+                      onChange={this.onChange}
+                      error={errors.location}
+                      info="City, Country"
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="*Skills"
+                      name="skills"
+                      value={this.state.skills}
+                      onChange={this.onChange}
+                      error={errors.skills}
+                      info="Please use comma separate values (eg. HTML, CSS, PHP, Javascript)"
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <TextFieldGroup
+                      placeholder="Github Username"
+                      name="githubusername"
+                      value={this.state.githubusername}
+                      onChange={this.onChange}
+                      error={errors.githubusername}
+                      info="If you want your latest repos and Github link, include your username"
+                    />
+                  </div>
+                </div>
 
-                <TextFieldGroup
-                  placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
-                  onChange={this.onChange}
-                  error={errors.githubusername}
-                  info="If you want your latest repos and Github link, include your username"
-                />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
@@ -203,7 +223,7 @@ class CreateProfile extends Component {
                 <div className="mb-3">
                   <button
                     type="button"
-                    className="btn btn-light"
+                    className="btn btn-info"
                     onClick={() => {
                       this.setState(prevState => ({
                         displaySocialInputs: !prevState.displaySocialInputs
@@ -212,7 +232,7 @@ class CreateProfile extends Component {
                   >
                     Add Social Network Links
                   </button>
-                  <span className="text-muted">Optional</span>
+                  <span className="text-muted"> Optional</span>
                 </div>
                 {socialInputs}
                 <input
